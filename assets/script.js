@@ -5,7 +5,7 @@ var timezoneInput = document.getElementById("timezone");
 var ispInput = document.getElementById("isp");
 
 const formEl = document.querySelector('form');
-
+let mapText = document.getElementById("map");
 
 
 //------------------------------------------------------//
@@ -31,6 +31,13 @@ async function getData() {
         
         timezoneInput.innerHTML = result.
         timezone + " " + result.utc_offset;
+
+        let long = result.longitude;
+        let lat = result.latitude;
+
+        getMapfromAPI(lat,long);
+//         latitude: 49.2526
+// ​        longitude: -123.1236
         
         ispInput.innerHTML = result.org;
     }
@@ -105,6 +112,11 @@ async function getDataFromForm(formInput) {
             timezone + " " + result.utc_offset;
             
             ispInput.innerHTML = result.org;
+
+            let long = result.longitude;
+            let lat = result.latitude;
+
+            getMapfromAPI(lat,long);
         }
 
     } catch (error) {
@@ -116,6 +128,33 @@ async function getDataFromForm(formInput) {
 
 }
 
+//------------------------------------------------------//
+//                Get the MAP from API                  //
+//------------------------------------------------------//
 
 
+
+function getMapfromAPI (latInput,longInput) {
+
+    let URL = "https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:" + longInput + "," + latInput + "&zoom=5&apiKey=" + geoAPIkey;
+
+    console.log("returning: " + URL);
+    outputMap(URL);
+
+}
+
+//------------------------------------------------------//
+//                Output the Map to screen              //
+//------------------------------------------------------//
+
+
+function outputMap(mapInput)
+{
+
+    let mapImage = "<img class='location-map' src='" + mapInput + "'>"
+    console.log(mapImage);
+    mapText.innerHTML = mapImage;
+
+
+}
 

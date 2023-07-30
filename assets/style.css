@@ -1,3 +1,7 @@
 body {
     background-color: gainsboro;
 }
+
+.location-map {
+    width: 100%;
+}
