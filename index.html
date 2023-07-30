@@ -20,13 +20,19 @@
     <!-- place navbar here -->
   </header>
   <main>
+    <div class="container text-center">
     IP Address Tracker
 
-    <div class="mb-3">
-      <label for="" class="form-label">Search for any IP address or domain/label>
-      <input type="text"
-        class="form-control" name="formInput" id="formInput" aria-describedby="helpId" placeholder="">
-      <small id="helpId" class="form-text text-muted">Help text</small>
+
+    <div class="d-flex justify-content-center mb-3 mt-3 pt-3 pb-3">
+      <form class="form-outline me-3" style="width: 20rem">
+        <input type="text"
+        class="form-control" name="formInput" id="formInput" aria-describedby="helpId" placeholder="Search for any IP address or domain">    
+        
+        <button type="submit"><img src="images/icon-arrow.svg" alt="Submit Button"></button>
+        
+      </form>
+      
     </div>
 
     
@@ -55,7 +61,7 @@
     
       
     
-    
+    </div> 
   </main>
   <footer>
     <!-- place footer here -->
