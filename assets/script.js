@@ -1,16 +1,14 @@
-var dataObject = [];
-
 
 var theFormInput = document.getElementById("formInput");
 var ipAddressInput = document.getElementById("ipAddress");
 var locationInput = document.getElementById("location");
 var timezoneInput = document.getElementById("timezone");
 var ispInput = document.getElementById("isp");
-
 const formEl = document.querySelector('form');
 
-let long = 0;
-let lat = 0;
+var dataObject = [];
+var long = 0;
+var lat = 0;
 
 
 //------------------------------------------------------//
@@ -32,8 +30,9 @@ async function getData() {
         
         ipAddressInput.innerHTML = result.ip;
         
-        locationInput.innerHTML = result.city;
         
+        locationInput.innerHTML = result.city + ", " + result.region + ", " + result.country;
+         
         timezoneInput.innerHTML = result.
         timezone + " " + result.utc_offset;
 
@@ -42,18 +41,15 @@ async function getData() {
 
         dataObject.ip = result.ip;
         dataObject.city = result.city;
+        dataObject.region = result.region;
+        dataObject.country = result.country;
         dataObject.timezone = result.
         timezone + " " + result.utc_offset;
         dataObject.long = long;
         dataObject.lat = lat;
         dataObject.isp = result.org;
-
         console.log("the array object: " + dataObject);
 
-        // getMapfromAPI(lat,long);
-//         latitude: 49.2526
-// ​        longitude: -123.1236
-        
         ispInput.innerHTML = result.org;
 
         
@@ -77,8 +73,15 @@ async function getData() {
 
 formEl.onsubmit = (e) => {
     e.preventDefault();
-    processForm();    
-    e.target.reset();
+    if (!theFormInput.value) {
+        window.alert("can't be empty");
+    }
+    else{
+        processForm();    
+        e.target.reset();
+    }
+    
+    
 }
 
 
@@ -126,7 +129,7 @@ async function getDataFromForm(formInput) {
            
             ipAddressInput.innerHTML = result.ip;
             
-            locationInput.innerHTML = result.city;
+            locationInput.innerHTML = result.city + ", " + result.region + ", " + result.country;
             
             timezoneInput.innerHTML = result.
             timezone + " " + result.utc_offset;
@@ -136,11 +139,10 @@ async function getDataFromForm(formInput) {
             long = result.longitude;
             lat = result.latitude;
 
-
-            
-
             dataObject.ip = result.ip;
             dataObject.city = result.city;
+            dataObject.region = result.region;
+            dataObject.country = result.country;
             dataObject.timezone = result.
             timezone + " " + result.utc_offset;
             dataObject.long = long;
@@ -168,7 +170,7 @@ function displayMap() {
 
     var marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
     marker.bindPopup(`<b>Current IP: </b> ${dataObject.ip}
-    <br><b>Location: </b> ${dataObject.city}<br><b>Timezone: </b> ${dataObject.timezone}`).openPopup();
+    <br><b>Location: </b> ${dataObject.city},&nbsp ${dataObject.region} <br><b>Timezone: </b> ${dataObject.timezone}`).openPopup();
     map.flyTo([lat, long], 10);
 }
 
