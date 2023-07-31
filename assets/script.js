@@ -1,3 +1,6 @@
+var dataObject = [];
+
+
 var theFormInput = document.getElementById("formInput");
 var ipAddressInput = document.getElementById("ipAddress");
 var locationInput = document.getElementById("location");
@@ -5,7 +8,6 @@ var timezoneInput = document.getElementById("timezone");
 var ispInput = document.getElementById("isp");
 
 const formEl = document.querySelector('form');
-let mapText = document.getElementById("map2");
 
 let long = 0;
 let lat = 0;
@@ -38,12 +40,25 @@ async function getData() {
         long = result.longitude;
         lat = result.latitude;
 
+        dataObject.ip = result.ip;
+        dataObject.city = result.city;
+        dataObject.timezone = result.
+        timezone + " " + result.utc_offset;
+        dataObject.long = long;
+        dataObject.lat = lat;
+        dataObject.isp = result.org;
+
+        console.log("the array object: " + dataObject);
+
         // getMapfromAPI(lat,long);
 //         latitude: 49.2526
 // ​        longitude: -123.1236
         
         ispInput.innerHTML = result.org;
-        displayMap(result.ip);
+
+        
+
+        displayMap();
         
     }
 
@@ -121,9 +136,19 @@ async function getDataFromForm(formInput) {
             long = result.longitude;
             lat = result.latitude;
 
-            // getMapfromAPI(lat,long);
 
-            displayMap(result.ip);
+            
+
+            dataObject.ip = result.ip;
+            dataObject.city = result.city;
+            dataObject.timezone = result.
+            timezone + " " + result.utc_offset;
+            dataObject.long = long;
+            dataObject.lat = lat;
+            dataObject.isp = result.org;
+
+            displayMap(dataObject.ip);
+
         }
 
     } catch (error) {
@@ -139,10 +164,11 @@ async function getDataFromForm(formInput) {
 //                Output the map and marker             //
 //------------------------------------------------------//
 
-function displayMap(ipAddress) {
+function displayMap() {
 
     var marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
-    marker.bindPopup(`Current IP ${ipAddress}`).openPopup();
+    marker.bindPopup(`<b>Current IP: </b> ${dataObject.ip}
+    <br><b>Location: </b> ${dataObject.city}<br><b>Timezone: </b> ${dataObject.timezone}`).openPopup();
     map.flyTo([lat, long], 10);
 }
 
