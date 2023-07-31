@@ -5,7 +5,10 @@ var timezoneInput = document.getElementById("timezone");
 var ispInput = document.getElementById("isp");
 
 const formEl = document.querySelector('form');
-let mapText = document.getElementById("map");
+let mapText = document.getElementById("map2");
+
+let long = 0;
+let lat = 0;
 
 
 //------------------------------------------------------//
@@ -32,14 +35,16 @@ async function getData() {
         timezoneInput.innerHTML = result.
         timezone + " " + result.utc_offset;
 
-        let long = result.longitude;
-        let lat = result.latitude;
+        long = result.longitude;
+        lat = result.latitude;
 
-        getMapfromAPI(lat,long);
+        // getMapfromAPI(lat,long);
 //         latitude: 49.2526
 // ​        longitude: -123.1236
         
         ispInput.innerHTML = result.org;
+        displayMap(result.ip);
+        
     }
 
 } catch (error) {
@@ -113,10 +118,12 @@ async function getDataFromForm(formInput) {
             
             ispInput.innerHTML = result.org;
 
-            let long = result.longitude;
-            let lat = result.latitude;
+            long = result.longitude;
+            lat = result.latitude;
 
-            getMapfromAPI(lat,long);
+            // getMapfromAPI(lat,long);
+
+            displayMap(result.ip);
         }
 
     } catch (error) {
@@ -129,32 +136,25 @@ async function getDataFromForm(formInput) {
 }
 
 //------------------------------------------------------//
-//                Get the MAP from API                  //
+//                Output the map and marker             //
 //------------------------------------------------------//
 
+function displayMap(ipAddress) {
 
-
-function getMapfromAPI (latInput,longInput) {
-
-    let URL = "https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:" + longInput + "," + latInput + "&zoom=5&apiKey=" + geoAPIkey;
-
-    console.log("returning: " + URL);
-    outputMap(URL);
-
+    var marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
+    marker.bindPopup(`Current IP ${ipAddress}`).openPopup();
+    map.flyTo([lat, long], 10);
 }
 
-//------------------------------------------------------//
-//                Output the Map to screen              //
-//------------------------------------------------------//
-
-
-function outputMap(mapInput)
-{
-
-    let mapImage = "<img class='location-map' src='" + mapInput + "'>"
-    console.log(mapImage);
-    mapText.innerHTML = mapImage;
-
-
-}
-
+var map = L.map("map").setView([long, lat], 2);
+var myIcon = L.icon({
+	iconUrl: "images/icon-location.svg",
+	iconAnchor: [22, 94],
+	popupAnchor: [0, -70],
+});
+// add the OpenStreetMap tiles
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+	maxZoom: 19,
+	attribution:
+		'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+}).addTo(map);
