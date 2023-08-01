@@ -10,11 +10,20 @@
  --black: #051e3e;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
     background-color: var(--white3);
     height: 100%;
 }
 
+.container {
+  height: 98vh;
+}
 
 
 #map {
@@ -35,24 +44,33 @@ body {
   justify-content: flex-start;
   flex-direction: column;
   width: 100%;
-  height: 33vh;
+  height: 40vh;
   background-image: url(/images/pattern-bg-desktop.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-
+.searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 2rem;
+}
 
 .searchInput {
-  width: 70%;
-  height: 6vh;
+  width: 30%;
+  height: 7vh;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  outline: none;
+  border: none;
 }
 
 .submitInput {
-  height: 6vh;
-  width: 6vh;
+  height: 7vh;
+  width: 7vh;
   background-color: var(--black);
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -63,11 +81,19 @@ body {
   background-image: url(/images/icon-arrow.svg);
   background-repeat: no-repeat;
   background-position: center;
-  height: 6vh;
+  height: 7vh;
 }
 
 .submitInput.arrow:hover {
   background-color: var(--greenblue);
+}
+
+.submitInput:hover {
+  background-color: var(--black);
+}
+
+input#formInput {
+  padding: 2em;
 }
 
 input[type=text] {
@@ -94,10 +120,13 @@ input[type=text]::placeholder {
   align-items: center;
   justify-content: center;
   margin-top: -6rem;
+  height: 14%;
+
 }
 
 .middleContent .middleContentContainer {
-  margin-bottom: -7rem;
+  // padding-left: 5em;
+  // margin-bottom: -7rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,8 +142,9 @@ input[type=text]::placeholder {
   justify-content: space-evenly;
   flex-direction: column;
   text-align: left;
-  width: 40%;
+  width: 20%;
   height: 60%;
+  margin-left: 3rem;
   
 }
 
@@ -126,9 +156,16 @@ input[type=text]::placeholder {
   font-weight: 500;
 }
 
-.middleContent .middleContentContainer span {
+.middleContent .middleContentContainer .values {
   font-size: 20px;
   color: var(--navy);
   
 }
 
+footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+ 
+}
