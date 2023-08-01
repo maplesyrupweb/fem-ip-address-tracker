@@ -1,6 +1,6 @@
 # IP Address Tracker 
 
-<img width="2560" alt="IP_Address_Tracker" src="https://github.com/maplesyrupweb/fem-ip-address-tracker/assets/73809301/6cb96398-904d-4e13-a0f5-3c02e345c82e">
+<img width="2056" alt="Screenshot 2023-08-01 at 12 59 52 PM" src="https://github.com/maplesyrupweb/fem-ip-address-tracker/assets/73809301/a5bc9d13-b2d0-4473-bed7-bfea9afd6380">
 
 This IP Address Tracker is a frontend coding challenge from Frontend Mentor. It has the following features
 
