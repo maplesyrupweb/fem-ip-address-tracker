@@ -1,7 +1,62 @@
-body {
-    background-color: gainsboro;
+:root {
+ 
+ --white: #f4f4f8;
+ --white2:  #e6e6ea;
+ --white3: gainsboro;
+ --yelow: #fed766;
+ --greenblue:  #2ab7ca;
+ --red: #fe4a49;
+ --black: #051e3e;
 }
 
-.location-map {
-    width: 100%;
+body {
+    background-color: var(--white3);
+    height: 100%;
+}
+
+.container {
+  height: 98vh;
+}
+
+#map {
+    height: 100vh;
+}
+
+.topContent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 33%;
+  background-image: url(/images/pattern-bg-desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.searchInput {
+  width: 70%;
+  height: 6vh;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.submitInput {
+  height: 6vh;
+  width: 6vh;
+  background-color: var(--black);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  cursor: crosshair;
+}
+
+.submitInput.arrow {
+  background-image: url(/images/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 6vh;
+}
+
+.submitInput.arrow:hover {
+  background-color: var(--greenblue);
 }

@@ -29,47 +29,61 @@
     <!-- place navbar here -->
   </header>
   <main>
-    <div class="container text-center">
-    IP Address Tracker
-
-
-    <div class="d-flex justify-content-center mb-3 mt-3 pt-3 pb-3">
-      <form class="form-outline me-3" style="width: 20rem">
-        <input type="text"
-        class="form-control" name="formInput" id="formInput" aria-describedby="helpId" placeholder="Search for any IP address or domain">    
-        
-        <button type="submit"><img src="images/icon-arrow.svg" alt="Submit Button"></button>
-        
-      </form>
-      
-    </div>
-
     
   
-    <div class="row">
-      <div class="col">
-        <p class="" id="">IP Address</p>
-        <span class="" id="ipAddress"></span>
+    
+    <div class="topContent">
+      <h1 class="text-white">IP Address Tracker</h1>
+      <div class="d-flex justify-content-center mb-3 mt-3 pt-3 pb-3">
+        <form class="form-outline me-3" style="width: 20rem">
+          <input 
+            type="text"
+            class="searchInput" 
+            name="formInput" 
+            id="formInput" 
+            aria-describedby="helpId" 
+            placeholder="Search for any IP address or domain"
+            
+          />
+          <input 
+            type="submit"
+            value=""
+            class="submitInput arrow"
+            >
+          
+        </form>        
       </div>
-      <div class="col">
-        <p class="" id="">Location</p>
-        <span class="" id="location"></span>            
+    </div>
+    <div class="middleContent">
+      <div class="row">
+        <div class="col">
+          <p class="" id="">IP Address</p>
+          <span class="" id="ipAddress"></span>
+        </div>
+        <div class="col">
+          <p class="" id="">Location</p>
+          <span class="" id="location"></span>            
+        </div>
+        <div class="col">
+          <p class="" id="">Timezone</p>
+          <span class="" id="timezone"></span>
+        </div>
+        <div class="col">
+          <p class="" id="">ISP</p>
+          <span class="" id="isp"></span>
+        </div>
       </div>
-      <div class="col">
-        <p class="" id="">Timezone</p>
-        <span class="" id="timezone"></span>
-      </div>
-      <div class="col">
-        <p class="" id="">ISP</p>
-        <span class="" id="isp"></span>
-        
-      </div>
+    </div>
+    <div class="bottomContent">
+      <div class="mapWrapper">
+        <div id="map"></div>
+      </div>  
     </div>
     
-    <div class="mapWrapper">
-      <div id="map"></div>
-    </div>
-
+    
+  
+    
+    
   </main>
   <footer>
     <!-- place footer here -->
