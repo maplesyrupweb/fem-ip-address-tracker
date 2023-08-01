@@ -6,6 +6,7 @@
  --yelow: #fed766;
  --greenblue:  #2ab7ca;
  --red: #fe4a49;
+ --navy: #011f4b;
  --black: #051e3e;
 }
 
@@ -14,12 +15,18 @@ body {
     height: 100%;
 }
 
-.container {
-  height: 98vh;
-}
+
 
 #map {
-    height: 100vh;
+    height: 60vh;
+    margin-top: -3rem;
+}
+
+
+.topContent h1 {
+  margin-top: 3rem;
+  color: var(--white);
+  font-weight: 400;
 }
 
 .topContent {
@@ -28,11 +35,13 @@ body {
   justify-content: flex-start;
   flex-direction: column;
   width: 100%;
-  height: 33%;
+  height: 33vh;
   background-image: url(/images/pattern-bg-desktop.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
 
 .searchInput {
   width: 70%;
@@ -60,3 +69,66 @@ body {
 .submitInput.arrow:hover {
   background-color: var(--greenblue);
 }
+
+input[type=text] {
+  font-size: 15px;
+  padding-left: 0;
+}
+input[type=text]::-moz-placeholder {
+  font-size: 13px;
+  padding-left: 0;
+}
+input[type=text]:-ms-input-placeholder {
+  font-size: 13px;
+  padding-left: 0;
+}
+input[type=text]::placeholder {
+  font-size: 13px;
+  padding-left: 0;
+}
+
+
+
+.middleContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -6rem;
+}
+
+.middleContent .middleContentContainer {
+  margin-bottom: -7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 20vh;
+  z-index: 999;
+  background-color: var(--white);
+  border-radius: 21px; 
+}
+
+.middleContent .middleContentContainer .unit {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: left;
+  width: 40%;
+  height: 60%;
+  
+}
+
+
+.middleContent .middleContentContainer h2 {
+  text-transform: uppercase;
+  font-size: 25px;
+  color: var(--black);
+  font-weight: 500;
+}
+
+.middleContent .middleContentContainer span {
+  font-size: 20px;
+  color: var(--navy);
+  
+}
+

@@ -28,7 +28,7 @@
   <header>
     <!-- place navbar here -->
   </header>
-  <main>
+  <main class="">
     
   
     
@@ -55,30 +55,33 @@
       </div>
     </div>
     <div class="middleContent">
+      <div class="middleContentContainer">
       <div class="row">
         <div class="col">
-          <p class="" id="">IP Address</p>
-          <span class="" id="ipAddress"></span>
+          <h2 class="ip unit" id="">IP</h2>
+          <span class="ip unit" id="ipAddress"></span>
         </div>
         <div class="col">
-          <p class="" id="">Location</p>
+          <h2 class="location unit" id="">Location</h2>
           <span class="" id="location"></span>            
         </div>
         <div class="col">
-          <p class="" id="">Timezone</p>
+          <h2 class="timezone unit" id="">Timezone</h2>
           <span class="" id="timezone"></span>
         </div>
         <div class="col">
-          <p class="" id="">ISP</p>
+          <h2 class="isp unit" id="">ISP</h2>
           <span class="" id="isp"></span>
         </div>
-      </div>
+      </div> 
+    </div>
     </div>
     <div class="bottomContent">
       <div class="mapWrapper">
         <div id="map"></div>
       </div>  
     </div>
+  
     
     
   
@@ -87,6 +90,8 @@
   </main>
   <footer>
     <!-- place footer here -->
+
+    
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
